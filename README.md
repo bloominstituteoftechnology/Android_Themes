@@ -8,7 +8,7 @@ icons and allow users to select themes
 ## Instructions
 
 ### Part 1 - Custom Theme
-Typically apps have a light and a dark theme. Customize one of those themes for your app.
+Typically apps have a light and a dark theme. Go to the `styles.xml` file and create a second theme for your appby adding color values in `colors.xml` and using a differenct color combination.
 
 ### Part 2 - Migrate all Hard Coded Data to Resources Files
 Make sure to use at least 10 values each for String resources and Attr resources.
