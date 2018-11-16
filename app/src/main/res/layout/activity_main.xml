@@ -22,7 +22,7 @@
         android:id="@+id/button_pickimage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pick Image"
+        android:text="@string/pick_image_button_text"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

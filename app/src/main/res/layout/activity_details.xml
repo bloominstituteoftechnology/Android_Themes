@@ -37,35 +37,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="@dimen/details_padding"
                 android:paddingTop="15dp"
-                android:text="Name:"
+                android:text="@string/details_name_label"
                 android:textAlignment="textStart"
-                android:textSize="20sp" />
+                android:textSize="@dimen/details_labels_textsize" />
 
             <TextView
                 android:id="@+id/image_details_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="@dimen/details_padding"
                 android:textAlignment="textStart"
-                android:textSize="15sp" />
+                android:textSize="@dimen/details_data_textsize" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="URI:"
+                android:padding="@dimen/details_padding"
+                android:text="@string/details_uri_label"
                 android:textAlignment="textStart"
-                android:textSize="20sp" />
+                android:textSize="@dimen/details_labels_textsize" />
 
             <TextView
                 android:id="@+id/image_details_uri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="@dimen/details_padding"
                 android:textAlignment="textStart"
-                android:textSize="15sp" />
+                android:textSize="@dimen/details_data_textsize" />
 
         </LinearLayout>
 

@@ -31,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
         imagePreview = findViewById(R.id.image_preview);
         Intent intent = getIntent();
 
-        detailsImage = (ImageData) intent.getSerializableExtra("DISPLAY_IMAGE");
+        detailsImage = (ImageData) intent.getSerializableExtra(Constants.DISPLAY_IMAGE);
         Uri imageUri = detailsImage.getImageUri();
         imagePreview.setImageURI(imageUri);
 
@@ -39,7 +39,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent clickIntent = new Intent(context, FullscreenActivity.class);
-                clickIntent.putExtra("FULLSCREEN_IMAGE", detailsImage);
+                clickIntent.putExtra(Constants.FULLSCREEN_IMAGE, detailsImage);
                 startActivity(clickIntent);
             }
         });

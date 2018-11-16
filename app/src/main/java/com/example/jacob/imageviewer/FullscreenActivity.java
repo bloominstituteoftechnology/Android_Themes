@@ -116,7 +116,7 @@ public class FullscreenActivity extends AppCompatActivity {
         imageFullscreen = findViewById(R.id.image_full_screen);
         Intent intent = getIntent();
 
-        imageDataFullscreen = (ImageData) intent.getSerializableExtra("FULLSCREEN_IMAGE");
+        imageDataFullscreen = (ImageData) intent.getSerializableExtra(Constants.FULLSCREEN_IMAGE);
         Uri imageUri = imageDataFullscreen.getImageUri();
         imageFullscreen.setImageURI(imageUri);
 

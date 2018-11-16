@@ -54,7 +54,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.View
             @Override
             public void onClick(View v) {
                  Intent clickIntent = new Intent(context, DetailsActivity.class);
-                clickIntent.putExtra("DISPLAY_IMAGE",data);
+                clickIntent.putExtra(Constants.DISPLAY_IMAGE,data);
                 context.startActivity(clickIntent);
             }
         });
