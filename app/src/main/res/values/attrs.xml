@@ -9,4 +9,7 @@
         <attr name="metaButtonBarButtonStyle" format="reference" />
     </declare-styleable>
 
+    <attr name="details_labels_textsize" format="reference"/>
+    <attr name="details_data_textsize" format="reference"/>
+
 </resources>

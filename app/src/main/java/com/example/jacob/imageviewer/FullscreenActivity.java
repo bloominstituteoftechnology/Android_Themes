@@ -92,7 +92,7 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_fullscreen);
 
         mVisible = true;

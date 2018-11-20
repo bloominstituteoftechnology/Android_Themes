@@ -1,5 +1,6 @@
 package com.example.jacob.imageviewer;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,6 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -20,16 +24,20 @@ public class MainActivity extends AppCompatActivity {
     private static final int IMAGE_REQUEST_CODE = 3;
     private Context context;
     private ArrayList<ImageData> imageArrayList = new ArrayList<>();
-
     private GridLayoutManager layoutManager;
     private RecyclerView recyclerView;
     private ImageListAdapter listAdapter;
+    private int currentTheme;
+    private Activity activity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         context = this;
+        activity = this;
 
         findViewById(R.id.button_pickimage).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.note_recycler_view);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new GridLayoutManager(context, 2,GridLayoutManager.VERTICAL,false);
+        layoutManager = new GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         listAdapter = new ImageListAdapter(imageArrayList);
         recyclerView.setAdapter(listAdapter);
@@ -63,9 +71,52 @@ public class MainActivity extends AppCompatActivity {
                 cursor.close();
                 ImageData selectedImage = new ImageData(imageUri, imageName);
                 imageArrayList.add(selectedImage);
-                listAdapter.notifyItemInserted(imageArrayList.size()-1);
+                listAdapter.notifyItemInserted(imageArrayList.size() - 1);
             }
         }
+    }
 
+
+    @Override
+    public void setTheme(int resid) {
+        currentTheme = resid;
+        super.setTheme(resid);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!ThemeUtils.checkTheme(activity, currentTheme)) {
+            ThemeUtils.refreshActivity(activity);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!ThemeUtils.checkTheme(activity, currentTheme)) {
+            ThemeUtils.refreshActivity(activity);
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(context, SettingsActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 }
