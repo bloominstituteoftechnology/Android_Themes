@@ -3,4 +3,17 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorMountainDark">#A28771</color>
+    <color name="colorMonsterDark">#8C2F39</color>
+    <color name="colorChestDark">#E8AB3C</color>
+    <color name="colorPlayerDark">#72BC77</color>
+    <color name="colorBackgroundDark">#222222</color>
+
+    <color name="colorMountainLight">#5A4B3F</color>
+    <color name="colorMonsterLight">#66232A</color>
+    <color name="colorChestLight">#A3782A</color>
+    <color name="colorPlayerLight">#508453</color>
+    <color name="colorBackgroundLight">#bebebe</color>
+
 </resources>

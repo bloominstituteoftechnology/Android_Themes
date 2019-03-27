@@ -27,14 +27,11 @@ public class Map {
 
          for(int i = 0; i < WIDTH; i++){
              for(int j = 0; j < HEIGHT; j++){
-                 char cha = '#';
+                 char cha;
                  Random random = new Random();
                  int rand = random.nextInt(DENSITY_OF_MAP);
 
-                 if(i < 20)
-                 {
-                     cha = '#';
-                 }
+
                  switch(rand){
                      case 1:
                          cha = 'X'; // mountain
@@ -51,7 +48,7 @@ public class Map {
                      default:
                          cha = ' '; // empty space
                  }
-                 if(i < 20 || j < 20)
+                 if(i < 20 || j < 20)// creates border for an easy way to prevent oob
                  {
                      cha = '#';
                  }

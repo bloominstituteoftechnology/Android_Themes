@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         display = getWindowManager().getDefaultDisplay();
         DISPLAY_HEIGHT = display.getHeight();
         DISPLAY_WIDTH = display.getWidth();
-        Log.i("test2", String.valueOf(DISPLAY_WIDTH) + "--" + String.valueOf(DISPLAY_HEIGHT));
 
         mapView = findViewById(R.id.map_view);
         Handler.createMap();
@@ -47,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         upButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Handler.checkCollision(yPos-1, xPos) != true) {
+                if (Handler.checkCollision(yPos - 1, xPos) != true) {
                     yPos--;
                     mapView.setText("");
                     updateMap();
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         downButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Handler.checkCollision(yPos+1, xPos) != true) {
+                if (Handler.checkCollision(yPos + 1, xPos) != true) {
                     yPos++;
                     mapView.setText("");
                     updateMap();
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Handler.checkCollision(yPos, xPos -1) != true) {
+                if (Handler.checkCollision(yPos, xPos - 1) != true) {
                     xPos--;
                     mapView.setText("");
                     updateMap();
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Handler.checkCollision(yPos, xPos +1) != true) {
+                if (Handler.checkCollision(yPos, xPos + 1) != true) {
                     xPos++;
                     mapView.setText("");
                     updateMap();
@@ -89,39 +88,34 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
-    public void updateMap(){
-        printMapToView(charArr2ToStringArr(Handler.mapDisplayArea(yPos, xPos)));
+    public void updateMap() {
+        printMapToView(Handler.charArr2ToStringArr(Handler.mapDisplayArea(yPos, xPos)));
     }
 
-    public String[] charArr2ToStringArr(char[][] displayedMap){
-        String[] totalMap = new String[displayedMap.length];
-        for(int i = 0; i < displayedMap.length; i++){
-            String lineMap = "";
-            for(int j = 0; j < displayedMap[i].length; j++){
-                lineMap += displayedMap[i][j];
-            }
-            totalMap[i] = lineMap;
-        }
-        return totalMap;
-    }
 
-    public void printMapToView(String[] map){
+
+    public void printMapToView(String[] map) {
         mapView.setTypeface(Typeface.MONOSPACE);
         mapView.setTextScaleX(1.5f);
 
-        for(int i = -2; i < map[1].length(); i++){
+        for(int j = 0; j< map.length-1;j++)
+        {
+            map[j].replace("X","Y");
+        }
+
+
+        for (int i = -2; i < map[1].length(); i++) {
             mapView.append("#");
         }
         mapView.append("\n");
-        for(String maps : map) {
+        for (String maps : map) {
             mapView.append("#");
             mapView.append(maps);
             mapView.append("#\n");
         }
-        for(int i = -2; i < map[1].length(); i++){
+        for (int i = -2; i < map[1].length(); i++) {
             mapView.append("#");
         }
 

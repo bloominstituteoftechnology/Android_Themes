@@ -41,10 +41,22 @@ public class Handler {
     public static boolean checkCollision(int y, int x){
         y += PLAYER_POS_Y;
         x += PLAYER_POS_X;
-        if(map.getCharYX(y,x) == 'X' || map.getCharYX(y,x) == '#'){
+        if(map.getCharYX(y,x) == '♣' || map.getCharYX(y,x) == '#'){
             return true;
         }
         else{return false;}
+    }
+
+    public static String[] charArr2ToStringArr(char[][] displayedMap) {
+        String[] totalMap = new String[displayedMap.length];
+        for (int i = 0; i < displayedMap.length; i++) {
+            String lineMap = "";
+            for (int j = 0; j < displayedMap[i].length; j++) {
+                lineMap += displayedMap[i][j];
+            }
+            totalMap[i] = lineMap;
+        }
+        return totalMap;
     }
 
     public int getMapWidth() {
