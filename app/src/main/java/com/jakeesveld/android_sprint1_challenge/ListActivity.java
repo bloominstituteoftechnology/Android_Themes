@@ -1,5 +1,6 @@
 package com.jakeesveld.android_sprint1_challenge;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Movie;
@@ -22,14 +23,25 @@ public class ListActivity extends AppCompatActivity {
     Context context;
     public final int MOVIE_REQUEST_CODE = 1;
     static int id = 0;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activity = this;
+        ThemeUtils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         layoutList = findViewById(R.id.layout_list);
         buttonAdd = findViewById(R.id.button_add);
         context = this;
+
+
+        findViewById(R.id.button_toggle_dark_mode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThemeUtils.toggleTheme(activity);
+            }
+        });
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override

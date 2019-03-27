@@ -6,6 +6,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="button_text_color">@color/textColorLauncherPrimary</item>
+        <item name="button_background">@color/colorButtonBackground</item>
+    </style>
+
+    <style name="AppThemeDarkMode" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="button_text_color">@color/colorDarkModeText</item>
+        <item name="button_background">@color/textColorLauncherPrimary</item>
     </style>
 
 </resources>

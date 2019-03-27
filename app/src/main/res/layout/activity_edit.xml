@@ -35,6 +35,8 @@
         android:text="@string/button_delete"
         android:layout_weight="1"
         android:layout_width="0dp"
+        android:textColor="?attr/button_text_color"
+        android:backgroundTint="?attr/button_background"
         android:layout_height="wrap_content" />
 
     <Button
@@ -42,6 +44,8 @@
         android:text="@string/button_add"
         android:layout_weight="1"
         android:layout_width="0dp"
+        android:textColor="?attr/button_text_color"
+        android:backgroundTint="?attr/button_background"
         android:layout_height="wrap_content" />
 
     </LinearLayout>

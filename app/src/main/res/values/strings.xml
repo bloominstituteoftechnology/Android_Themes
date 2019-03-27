@@ -5,4 +5,5 @@
     <string name="button_delete">Delete Movie</string>
     <string name="button_add">Add Movie</string>
     <string name="list_header_text">Movies I\'ve watched/To watch</string>
+    <string name="button_toggle_dark_mode">Toggle Dark Mode</string>
 </resources>
