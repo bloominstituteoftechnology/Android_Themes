@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     TextView mapView;
-    Map map;
     static int yPos = 20;
     static int xPos = 20;
     static int DISPLAY_WIDTH;
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView downButton;
     ImageView leftButton;
     ImageView rightButton;
+    ImageView settingsButton;
     Display display;
 
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         mapView = findViewById(R.id.map_view);
         Handler.createMap();
+
+        settingsButton = findViewById(R.id.button_settings);
 
         upButton = findViewById(R.id.button_up);
         downButton = findViewById(R.id.button_down);
@@ -86,6 +89,14 @@ public class MainActivity extends AppCompatActivity {
                     mapView.setText("");
                     updateMap();
                 }
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SettingsActivity.class);
+                startActivity(intent);
             }
         });
 
