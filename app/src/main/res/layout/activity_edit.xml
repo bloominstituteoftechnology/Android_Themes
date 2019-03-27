@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/switch_watched"
-        android:hint="Enter movie name here." />
+        android:hint="@string/edit_movie_name_hint" />
 
     <Switch
         android:id="@+id/switch_watched"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Watched"/>
+        android:text="@string/edit_switch_text"/>
 
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,14 +32,14 @@
 
     <Button
         android:id="@+id/button_delete"
-        android:text="Delete Movie"
+        android:text="@string/button_delete"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/button_add"
-        android:text="Add Movie"
+        android:text="@string/button_add"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
