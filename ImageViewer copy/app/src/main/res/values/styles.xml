@@ -20,4 +20,9 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="SabresTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/sabres_blue</item>
+        <item name="colorAccent">@color/sabres_gold</item>
+    </style>
+
 </resources>

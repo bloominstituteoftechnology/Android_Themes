@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".DetailsActivity">
+        android:theme="@style/SabresTheme">
+        <activity
+            android:name=".DetailsActivity"
+            android:theme="@style/SabresTheme">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <data android:mimeType="image/*" />
@@ -30,7 +32,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/SabresTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

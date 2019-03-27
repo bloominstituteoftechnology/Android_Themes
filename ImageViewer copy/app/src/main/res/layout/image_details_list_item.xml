@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/parent_layout"
-    app:cardBackgroundColor="@color/black_overlay"
+    app:cardBackgroundColor="@color/sabres_blue"
     app:cardCornerRadius="15dp"
     app:cardUseCompatPadding="true">
 
@@ -29,8 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:textSize="22sp"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_bright"/>
+            android:textColor="@color/sabres_gold"
+            android:textAlignment="center" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
