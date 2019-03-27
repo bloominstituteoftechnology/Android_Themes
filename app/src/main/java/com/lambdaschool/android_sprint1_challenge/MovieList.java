@@ -1,7 +1,11 @@
 package com.lambdaschool.android_sprint1_challenge;
 
+import android.app.UiModeManager;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Build;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,9 +24,13 @@ public class MovieList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_list);
 
+        MovieRepository.initializeSharedPreferences(this);
+        final boolean nightMode = MovieRepository.isAppStoredPrefsNightMode();
+
+
         final LinearLayout linearLayout = findViewById(R.id.linear_layout_movies);
         Intent intent = getIntent();
-        MovieRepository.addMovieToList((Movie)intent.getSerializableExtra(getString(R.string.movie_key)));
+        MovieRepository.addMovieToList((Movie) intent.getSerializableExtra(getString(R.string.movie_key)));
         ArrayList<Movie> movieList = MovieRepository.getMovieList();
 
         if (movieList.size() > 0) {
@@ -57,6 +65,18 @@ public class MovieList extends AppCompatActivity {
                 launchMovieEditActivity(new Movie());
             }
         });
+
+        Button buttonNight = findViewById(R.id.button_night);
+        buttonNight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    final UiModeManager uiModeManager = v.getContext().getSystemService(UiModeManager.class);
+                    uiModeManager.setNightMode((Boolean)nightMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                    MovieRepository.setAppStoredPrefsNightMode(!nightMode);
+                }
+            }
+        });
     }
 
     private void launchMovieEditActivity(Movie movieToPass) {
@@ -64,4 +84,6 @@ public class MovieList extends AppCompatActivity {
         intent.putExtra(getString(R.string.movie_key), movieToPass);
         startActivity(intent);
     }
+
+
 }
