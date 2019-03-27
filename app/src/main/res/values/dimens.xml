@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="details_padding">5dp</dimen>
+    <dimen name="details_labels_textsize_default">20sp</dimen>
+    <dimen name="details_data_textsize_default">15sp</dimen>
+    <dimen name="details_labels_textsize_large">40sp</dimen>
+    <dimen name="details_data_textsize_large">30sp</dimen>
+</resources>
