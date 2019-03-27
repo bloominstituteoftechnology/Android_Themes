@@ -41,7 +41,7 @@ public class Handler {
     public static boolean checkCollision(int y, int x){
         y += PLAYER_POS_Y;
         x += PLAYER_POS_X;
-        if(map.getCharYX(y,x) == '♣' || map.getCharYX(y,x) == '#'){
+        if(map.getCharYX(y,x) == 'X' || map.getCharYX(y,x) == '#'){
             return true;
         }
         else{return false;}

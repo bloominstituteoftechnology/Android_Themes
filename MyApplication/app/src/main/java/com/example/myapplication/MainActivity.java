@@ -1,12 +1,14 @@
 package com.example.myapplication;
 
 import android.graphics.Typeface;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
     static int xPos = 20;
     static int DISPLAY_WIDTH;
     static int DISPLAY_HEIGHT;
-    Button upButton;
-    Button downButton;
-    Button leftButton;
-    Button rightButton;
+    ImageView upButton;
+    ImageView downButton;
+    ImageView leftButton;
+    ImageView rightButton;
     Display display;
 
 
