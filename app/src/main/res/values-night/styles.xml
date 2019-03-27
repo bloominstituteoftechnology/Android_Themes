@@ -2,11 +2,11 @@
 <resources>
 
 <!-- Base application theme. -->
-<style name="AppTheme" parent="Theme.AppCompat.Light">
+<style name="AppTheme" parent="Theme.AppCompat">
     <!-- Customize your theme here. -->
-    <item name="colorPrimary">#7C7C7C</item>
-    <item name="colorPrimaryDark">#92DCE5</item>
-    <item name="colorAccent">#52DEE5</item>
+    <item name="colorPrimary">#807C7C7C</item>
+    <item name="colorPrimaryDark">#850F94A8</item>
+    <item name="colorAccent">#81046066</item>
 
     <item name="action_icon_dark">@drawable/ic_action_name_dark</item>
     <item name="action_icon_light">@drawable/ic_action_name</item>

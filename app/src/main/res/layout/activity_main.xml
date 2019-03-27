@@ -8,7 +8,7 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/night_mode_on_off"
+        android:id="@+id/button_night_mode_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -19,5 +19,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95"
         app:srcCompat="@drawable/ic_action_name" />
+
+    <TextView
+        android:id="@+id/textview_banner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Night Mode was left on/off"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
