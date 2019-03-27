@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="image_details_image_view_height">415dp</dimen>
+    <dimen name="image_details_image_view_width">175dp</dimen>
+    <dimen name="image_details_text_view_description_text_size">16sp</dimen>
+    <dimen name="image_details_text_view_object_text_size">20sp</dimen>
+
+    <dimen name="details_list_item_image_view_height">200dp</dimen>
+    <dimen name="details_list_item_text_view_height">30dp</dimen>
+    <dimen name="details_list_item_text_view_text_size">22sp</dimen>
+    <dimen name="details_list_item_card_view_corner_radius">15dp</dimen>
+
+    <dimen name="main_activity_button_text_size">16sp</dimen>
+
+
+</resources>
