@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="image_details_image_view_height">415dp</dimen>
-    <dimen name="image_details_image_view_width">175dp</dimen>
+    <dimen name="image_details_image_view_width">415dp</dimen>
+    <dimen name="image_details_image_view_height">175dp</dimen>
     <dimen name="image_details_text_view_description_text_size">16sp</dimen>
     <dimen name="image_details_text_view_object_text_size">20sp</dimen>
 

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/parent_layout"
     app:cardBackgroundColor="@color/sabres_blue"
-    app:cardCornerRadius="15dp"
+    app:cardCornerRadius="@dimen/details_list_item_card_view_corner_radius"
     app:cardUseCompatPadding="true">
 
     <android.support.constraint.ConstraintLayout
@@ -20,15 +20,15 @@
             app:layout_constraintBottom_toTopOf="@id/image_name_view"
             android:layout_width="match_parent"
             android:scaleType="fitXY"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/details_list_item_image_view_height"
             />
 
         <TextView
             android:id="@+id/image_name_view"
             app:layout_constraintTop_toBottomOf="@id/image_view"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:textSize="22sp"
+            android:layout_height="@dimen/details_list_item_text_view_height"
+            android:textSize="@dimen/details_list_item_text_view_text_size"
             android:textColor="@color/sabres_gold"
             android:textAlignment="center" />
 

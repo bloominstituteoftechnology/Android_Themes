@@ -51,7 +51,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    darkMode = true;
+                    if(darkMode) {
+                        darkMode = false;
+                    }else {
+                        darkMode = true;
+                    }
                     UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
                     uiModeManager.setNightMode(darkMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
 

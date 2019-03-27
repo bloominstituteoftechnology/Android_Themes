@@ -13,7 +13,7 @@
         android:layout_height="71dp"
         android:layout_marginBottom="20dp"
         android:text="@string/add_image"
-        android:textSize="16sp"
+        android:textSize="@dimen/main_activity_button_text_size"
         app:layout_constraintBottom_toTopOf="@id/recycler_view"
         app:layout_constraintTop_toTopOf="parent" />
 

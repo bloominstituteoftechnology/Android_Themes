@@ -10,15 +10,15 @@
         android:id="@+id/view_image"
         android:scaleType="fitXY"
         android:layout_weight="1"
-        android:layout_width="415dp"
-        android:layout_height="175dp"
-        />
+        android:layout_width="@dimen/image_details_image_view_width"
+        android:layout_height="@dimen/image_details_image_view_height"/>
+
 
     <TextView
         android:id="@+id/view_name"
         android:text="@string/image_name"
         android:layout_weight="0.05"
-        android:textSize="16sp"
+        android:textSize="@dimen/image_details_text_view_description_text_size"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/view_image_name"
         android:layout_weight="0.1"
-        android:textSize="20sp"
+        android:textSize="@dimen/image_details_text_view_object_text_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/view_uri"
         android:layout_weight="0.1"
         android:text="@string/text_uri"
-        android:textSize="16sp"
+        android:textSize="@dimen/image_details_text_view_description_text_size"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -42,7 +42,7 @@
     <TextView
         android:id="@+id/view_image_uri"
         android:layout_weight="0.1"
-        android:textSize="20sp"
+        android:textSize="@dimen/image_details_text_view_object_text_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -50,7 +50,7 @@
         android:id="@+id/view_image_description"
         android:text="@string/image_description"
         android:layout_weight="0.05"
-        android:textSize="16sp"
+        android:textSize="@dimen/image_details_text_view_description_text_size"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
