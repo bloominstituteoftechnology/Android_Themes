@@ -1,8 +1,10 @@
 package com.rybarstudios.imageviewer;
 
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageData imageData;
     ArrayList<ImageData> imageList;
     private ImageViewerListAdapter mListAdapter;
+    private boolean darkMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,18 @@ public class MainActivity extends AppCompatActivity {
                 imageIntent.setType("image/*");
                 startActivityForResult(imageIntent, IMAGE_REQUEST_CODE);
 
+            }
+        });
+
+        findViewById(R.id.dark_mode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    darkMode = true;
+                    UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
+                    uiModeManager.setNightMode(darkMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+
+                }
             }
         });
 
