@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:backgroundTint="@android:color/holo_green_dark"
+    android:backgroundTint="@color/colorAccent2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,17 +9,22 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:src="@drawable/ic_launcher_foreground"
         android:id="@+id/pic_image_view"
+        android:layout_width="119dp"
+        android:layout_height="104dp"
+        android:adjustViewBounds="true"
         android:paddingTop="20sp"
-        android:layout_width="175sp"
-        android:layout_height="175sp" />
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher_round" />
 
     <Button
         android:id="@+id/button_add_to_list"
-        android:text="Add to List"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingTop="10sp"
+        android:background="@color/colorPrimary"
+        android:text="Add to List"
+        android:textColor="#fff" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/image_recycler_view"
