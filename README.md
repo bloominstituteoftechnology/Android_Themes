@@ -8,12 +8,36 @@ icons and allow users to select themes
 ## Instructions
 
 ### Part 1 - Custom Theme
-Typically apps have a light and a dark theme. Go to the `styles.xml` file and create a second theme for your appby adding color values in `colors.xml` and using a differenct color combination.
+Go to the `styles.xml` file and change the theme for your app by adding color values in `colors.xml` and using a differenct color combination.
 
-### Part 2 - Migrate all Hard Coded Data to Resources Files
+### Part 2 - Build Custom Launcher and Other Icons
+1. Right click the res directory and select New -> Image Asset
+2. First, create a custom launcher icon, you can use your own image or a clip art provided by android studio. However, if you use your own image the launcher should follow the material design guidelines found here https://material.io/design/iconography/product-icons.html
+3. Go to your `AndroidManifest` file and make sure your new icon is being used as the launcher and round icons
+4. Return to the Asset Studio and select "Action Bar and Tab Icons" from the dropdown menu. Create versions of all the icons in your app which with work with both of your themes by selecting the theme at the bottom of the window. You can make them dark, light or any custom color to go with your theme.
+5. Add variables for these icons to your `attr.xml` and then attach them in the `styles.xml`
+6. Build and test to make sure everything works.
+
+### Part 3 - Add a Dark Mode Option
+1. Typically apps have a light and a dark theme. 
+1. Create a new `styles.xml` resource file
+   1. Right click the values directory and click new values resource file
+   2. Name it `styles.xml`
+   3. Select `Night Mode` from the qualifiers list
+   4. Select `Night` from the dropdown menu. This will be the home for your Dark Mode theme
+2. Copy the values from your old styles file into this new one. Change the parent to a dark theme.
+3. Add a button for the user to select which will toggle the dark mode
+> you'll want to store a boolean value in shared preferences to keep the theme change persistant across app sessions
+4. In the listener for that button, you'll want to first check if the current SDK version supports night mode
+   1. Check if `Build.VERSION.SDK_INT >= Build.VERSION_CODES.M`
+5. If it is supported, get a handle to the `UiModeManager` by calling `context.getSystemService(UiModeManager.class)`
+6. Then call `setNightMode` on that `UiModeManager` and pass `UiModeManager.MODE_NIGHT_YES` to enable and `UiModeManager.MODE_NIGHT_NO` to disable, based on your flag.
+
+## Challenge
+### Migrate all Hard Coded Data to Resources Files
 Make sure to use at least 10 values each for String resources and Attr resources.
 1. Go through all of your code (java and xml) and find any hard coded string and extract them all to your strings.xml file
-2. Go through your xml layout files and note all hard coded values (any numbers), what they are and how they are used
+2. Go through your xml layout files and note all hard coded values (any numbers or resources), what they are and how they are used
 3. This is the hard part, you need to decide how to organize these constant values. You'll want to find the right level of granularity.
 > Example: Do you just have one value called title_padding which is the top/bottom/left/right padding values for all titles in your app. Do you need different values for each?
 > A good way to do this, write down all the values with their use as names as if you were declaring them in Java code example:
@@ -29,15 +53,7 @@ Make sure to use at least 10 values each for String resources and Attr resources
 6. Now, in the `styles.xml` file, attach the attr variables to the resource values in your parent theme.
 7. Finally, go back through your layout files and replace the hardcoded values with the variables attributes you defined using `?attr/variable_name`
 
-### Part 3 - Build Custom Launcher and Other Icons
-1. Right click the res directory and select New -> Image Asset
-2. First, create a custom launcher icon, you can use your own image or a clip art provided by android studio. However, if you use your own image the launcher should follow the material design guidelines found here https://material.io/design/iconography/product-icons.html
-3. Go to your `AndroidManifest` file and make sure your new icon is being used as the launcher and round icons
-4. Return to the Asset Studio and select "Action Bar and Tab Icons" from the dropdown menu. Create versions of all the icons in your app which with work with both of your themes by selecting the theme at the bottom of the window. You can make them dark, light or any custom color to go with your theme.
-5. Add variables for these icons to your `attr.xml` and then attach them in the `styles.xml`
-6. Build and test to make sure everything works.
-
-### Part 4 - Allow Users to Select their Theme
+### Allow Users to Select from Multiple Theme Options
 #### Build Another Theme
 Now we'll build a second theme for the app. In this situation, we're just going to give the user a toggleable mode like a dark mode or a colorblind mode.
 1. Build a second theme, you can either have another Android provided theme or your defined theme as the parent
@@ -79,5 +95,3 @@ With that out of the way, this isn't too complicated.
 3. Analyze the use cases of your apps and determine which needs to go where and apply this code to all the activities as necessary.
 4. Test your app. Make sure to keep an eye on Logcat to see any errors that pop up.
 
-## Challenge
-In your testing, find bugs and small feature improvements that can improve the polish of your app.
