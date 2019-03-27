@@ -3,6 +3,7 @@ package com.rybarstudios.imageviewer;
 import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -23,12 +24,14 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static final int IMAGE_REQUEST_CODE = 54;
+    public static final String PREFS_KEY = "prefsKey";
     static int nextId = 0;
     private Context context;
     private ImageData imageData;
     ArrayList<ImageData> imageList;
     private ImageViewerListAdapter mListAdapter;
-    private boolean darkMode = false;
+    SharedPreferences prefs;
+    private boolean darkMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("ActivityLifecycle", getLocalClassName() + " - onCreate");
         context = this;
+
+        prefs = this.context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = prefs.edit();
 
         findViewById(R.id.button_add_image).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     }else {
                         darkMode = true;
                     }
+                    editor.putBoolean(PREFS_KEY, darkMode);
+                    editor.apply();
                     UiModeManager uiModeManager = context.getSystemService(UiModeManager.class);
                     uiModeManager.setNightMode(darkMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
 
@@ -90,24 +98,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public TextView generateTextView(String imageName) {
-        TextView view = new TextView(this);
-        view.setText(imageName);
-        view.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-        view.setPadding(15, 15, 15, 15);
-
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent imageDetails = new Intent(context, DetailsActivity.class);
-                imageDetails.putExtra(Intent.EXTRA_STREAM, imageData.getUri().toString());
-                imageDetails.putExtra(Intent.EXTRA_TEXT, imageData.getName());
-                startActivity(imageDetails);
-
-            }
-        });
-        return view;
-    }*/
 
     @Override
     protected void onStart() {
