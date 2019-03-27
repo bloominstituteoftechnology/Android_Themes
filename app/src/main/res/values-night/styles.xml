@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#673104</item>
+        <item name="colorPrimaryDark">#442205</item>
+        <item name="colorAccent">#BD8904</item>
+    </style>
+
+</resources>
