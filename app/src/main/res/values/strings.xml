@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android_Sprint1_Challenge</string>
+    <string name="edit_movie_name_hint">Enter movie name here.</string>
+    <string name="edit_switch_text">Watched</string>
+    <string name="button_delete">Delete Movie</string>
+    <string name="button_add">Add Movie</string>
+    <string name="list_header_text">Movies I\'ve watched/To watch</string>
+    <string name="button_toggle_dark_mode">Toggle Dark Mode</string>
+</resources>
