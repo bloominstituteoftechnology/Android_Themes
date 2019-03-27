@@ -3,8 +3,8 @@
     <color name="colorPrimary">#6CBEED</color>
     <color name="colorPrimaryDark">#1D2D44</color>
     <color name="colorAccent">#8F250C</color>
+    <color name="colorAccent2">#00E2FF</color>
 
-    <color name="textColorLauncherPrimary">#0726E2</color>
-    <color name="colorButtonBackground">#00E2FF</color>
-    <color name="colorDarkModeText">#000B4C</color>
+    <color name="colorDarkModePrimary">#0726E2</color>
+    <color name="colorDarkModePrimaryDark">#000B4C</color>
 </resources>
