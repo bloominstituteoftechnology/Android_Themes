@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Android_ReadingList</string>
+    <string name="app_name">Reading List</string>
+    <string name="night_mode_on">Night Mode On</string>
 </resources>

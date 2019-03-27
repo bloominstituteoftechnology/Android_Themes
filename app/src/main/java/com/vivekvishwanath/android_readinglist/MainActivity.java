@@ -1,8 +1,10 @@
 package com.vivekvishwanath.android_readinglist;
 
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ScrollView bookScrollView;
     Context context;
     Button addBookButton;
+    Button nightModeButton;
 
     static SharedPreferences preferences;
 
@@ -34,6 +37,28 @@ public class MainActivity extends AppCompatActivity {
 
         bookScrollView = findViewById(R.id.book_scroll_view);
 
+        nightModeButton = findViewById(R.id.night_mode_button);
+        nightModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean nightModeON = preferences.getBoolean("@string/night_mode_on", false);
+                if (nightModeON && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    UiModeManager manager = context.getSystemService(UiModeManager.class);
+                    manager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("@string/night_mode_on", false);
+                    editor.commit();
+                }
+
+                if (!nightModeON && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    UiModeManager manager = context.getSystemService(UiModeManager.class);
+                    manager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("@string/night_mode_on", true);
+                    editor.apply();
+                }
+            }
+        });
         addBookButton = findViewById(R.id.add_book_button);
         addBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
