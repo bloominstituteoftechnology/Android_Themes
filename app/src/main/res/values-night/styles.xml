@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">#7C7C7C</item>
+    <item name="colorPrimaryDark">#92DCE5</item>
+    <item name="colorAccent">#52DEE5</item>
+
+    <item name="action_icon_dark">@drawable/ic_action_name_dark</item>
+    <item name="action_icon_light">@drawable/ic_action_name</item>
+</style>
+
+</resources>
