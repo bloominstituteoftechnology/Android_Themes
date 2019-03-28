@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.annotation.TargetApi;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -173,10 +174,22 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.pref_general);
             setHasOptionsMenu(true);
 
+            final Preference preference = findPreference(getString(R.string.dark_mode_key));
+            preference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                        final UiModeManager uiModeManager = preference.getContext().getSystemService(UiModeManager.class);
+                        uiModeManager.setNightMode((Boolean)newValue ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                    }
+                    return true;
+                }
+            });
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
+
             bindPreferenceSummaryToValue(findPreference("example_text"));
             bindPreferenceSummaryToValue(findPreference("example_list"));
         }
