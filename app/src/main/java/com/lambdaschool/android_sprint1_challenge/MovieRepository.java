@@ -1,9 +1,11 @@
 package com.lambdaschool.android_sprint1_challenge;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-
 import java.util.ArrayList;
 
 public class MovieRepository {
@@ -34,19 +36,18 @@ public class MovieRepository {
         }
     }
 
-    public static boolean isAppStoredPrefsNightMode() {
-        appStoredPrefs.getBoolean("night_mode", appStoredPrefsNightMode);
-        return appStoredPrefsNightMode;
+    public static boolean isAppStoredPrefsNightMode(@NonNull Context context) {
+        return appStoredPrefs.getBoolean(context.getString(R.string.night_mode), appStoredPrefsNightMode);
     }
 
-    public static void setAppStoredPrefsNightMode(boolean appStoredPrefsNightMode) {
+    public static void setAppStoredPrefsNightMode(@NonNull Context context,boolean appStoredPrefsNightMode) {
         SharedPreferences.Editor appStoredPrefsEditor = appStoredPrefs.edit();
-        appStoredPrefsEditor.putBoolean("night_mode", appStoredPrefsNightMode);
+        appStoredPrefsEditor.putBoolean(context.getString(R.string.night_mode), appStoredPrefsNightMode);
         appStoredPrefsEditor.apply();
         MovieRepository.appStoredPrefsNightMode = appStoredPrefsNightMode;
     }
 
     public static void initializeSharedPreferences(@NonNull Context context) {
-        appStoredPrefs = context.getSharedPreferences(context.getApplicationInfo().name, Context.MODE_PRIVATE);
+        appStoredPrefs = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
     }
 }

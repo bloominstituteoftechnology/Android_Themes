@@ -25,8 +25,7 @@ public class MovieList extends AppCompatActivity {
         setContentView(R.layout.activity_movie_list);
 
         MovieRepository.initializeSharedPreferences(this);
-        final boolean nightMode = MovieRepository.isAppStoredPrefsNightMode();
-
+        final boolean nightMode = MovieRepository.isAppStoredPrefsNightMode(this);
 
         final LinearLayout linearLayout = findViewById(R.id.linear_layout_movies);
         Intent intent = getIntent();
@@ -72,8 +71,8 @@ public class MovieList extends AppCompatActivity {
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     final UiModeManager uiModeManager = v.getContext().getSystemService(UiModeManager.class);
-                    uiModeManager.setNightMode((Boolean)nightMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
-                    MovieRepository.setAppStoredPrefsNightMode(!nightMode);
+                    uiModeManager.setNightMode((Boolean) nightMode ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                    MovieRepository.setAppStoredPrefsNightMode(v.getContext(), !nightMode);
                 }
             }
         });

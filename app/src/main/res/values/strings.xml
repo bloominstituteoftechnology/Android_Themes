@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Android_Themes</string>
     <string name="movie_key">movie</string>
+    <string name="night_mode">night_mode</string>
+    <string name="movie_title_default"/>
+    <string name="check_box_edit_watched">Watched?</string>
+    <string name="button_edit_save">Save</string>
+    <string name="button_edit_delete">Delete</string>
+    <string name="text_view_edit_heading">Basil\'s Movie List - Edit</string>
+    <string name="text_view_list_heading">Basil\'s Movie List</string>
+    <string name="button_list_add_movie">Add Movie</string>
+    <string name="button_list_night">Night</string>
 </resources>

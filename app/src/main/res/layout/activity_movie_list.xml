@@ -10,10 +10,11 @@
         android:id="@+id/text_view_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Basil's Movie List"
+        android:text="@string/text_view_list_heading"
         android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="bold"
+        android:textColor="@color/colorHunter"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
@@ -31,7 +32,7 @@
         <LinearLayout
             android:id="@+id/linear_layout_movies"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" />
 
     </ScrollView>
@@ -43,7 +44,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Add Movie"
+        android:text="@string/button_list_add_movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -56,7 +57,7 @@
         android:layout_marginStart="61dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Night"
+        android:text="@string/button_list_night"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
