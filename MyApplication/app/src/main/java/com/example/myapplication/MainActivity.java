@@ -14,17 +14,17 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView mapView;
+    TextView   mapView;
     static int yPos = 20;
     static int xPos = 20;
     static int DISPLAY_WIDTH;
     static int DISPLAY_HEIGHT;
-    ImageView upButton;
-    ImageView downButton;
-    ImageView leftButton;
-    ImageView rightButton;
-    ImageView settingsButton;
-    Display display;
+    ImageView  upButton;
+    ImageView  downButton;
+    ImageView  leftButton;
+    ImageView  rightButton;
+    ImageView  settingsButton;
+    Display    display;
 
 
     @Override
@@ -32,20 +32,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        display = getWindowManager().getDefaultDisplay();
+        display        = getWindowManager().getDefaultDisplay();
         DISPLAY_HEIGHT = display.getHeight();
-        DISPLAY_WIDTH = display.getWidth();
+        DISPLAY_WIDTH  = display.getWidth();
 
-        mapView = findViewById(R.id.map_view);
-        Handler.createMap();
-
+        mapView        = findViewById(R.id.map_view);
         settingsButton = findViewById(R.id.button_settings);
-
-        upButton = findViewById(R.id.button_up);
-        downButton = findViewById(R.id.button_down);
-        leftButton = findViewById(R.id.button_left);
-        rightButton = findViewById(R.id.button_right);
-
+        upButton       = findViewById(R.id.button_up);
+        downButton     = findViewById(R.id.button_down);
+        leftButton     = findViewById(R.id.button_left);
+        rightButton    = findViewById(R.id.button_right);
+        Handler.createMap();
         updateMap();
 
         upButton.setOnClickListener(new View.OnClickListener() {
@@ -113,15 +110,10 @@ public class MainActivity extends AppCompatActivity {
         mapView.setTypeface(Typeface.MONOSPACE);
         mapView.setTextScaleX(1.5f);
 
-        for(int j = 0; j< map.length-1;j++)
-        {
-            map[j].replace("X","Y");
-        }
-
-
         for (int i = -2; i < map[1].length(); i++) {
             mapView.append("#");
         }
+
         mapView.append("\n");
         for (String maps : map) {
             mapView.append("#");

@@ -1,13 +1,7 @@
 package com.example.myapplication;
 
-public class Handler {
-    private static int MAP_WIDTH = 1000;
-    private static int MAP_HEIGHT = 1000;
-    private static int MAP_DISPLAY_WIDTH = 14;
-    private static int MAP_DISPLAY_HEIGHT = 20;
-    private static int MAP_DENSITY = 50; // higher is less dense
-    private static int PLAYER_POS_Y = 1;
-    private static int PLAYER_POS_X = 1;
+public class Handler extends Constants{
+
     private static Map map;
     private static char[][] displayArea;
 
@@ -33,7 +27,7 @@ public class Handler {
             }
             counterY++;
         }
-        displayArea[PLAYER_POS_X][PLAYER_POS_Y] = 'P';
+        displayArea[PLAYER_POS_Y][PLAYER_POS_X] = 'P';
         return displayArea;
     }
 
