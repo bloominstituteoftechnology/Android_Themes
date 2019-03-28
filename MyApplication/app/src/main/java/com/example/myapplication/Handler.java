@@ -8,12 +8,12 @@ public class Handler extends Constants{
 
     public static void createMap() {
         MAP_DISPLAY_HEIGHT = MainActivity.DISPLAY_HEIGHT/70;
-        MAP_DISPLAY_WIDTH = MainActivity.DISPLAY_WIDTH/35;
-        PLAYER_POS_Y = MAP_DISPLAY_HEIGHT/2;
-        PLAYER_POS_X = MAP_DISPLAY_WIDTH/2;
-        map = new Map(MAP_DENSITY, MAP_HEIGHT, MAP_WIDTH);
-        map.randomize();
+        MAP_DISPLAY_WIDTH  = MainActivity.DISPLAY_WIDTH/35;
+        PLAYER_POS_Y       = MAP_DISPLAY_HEIGHT/2;
+        PLAYER_POS_X       = MAP_DISPLAY_WIDTH/2;
 
+        map                = new Map(MAP_DENSITY, MAP_HEIGHT, MAP_WIDTH);
+        map.randomize();
     }
 
     public static char[][] mapDisplayArea(int y, int x) {
@@ -52,13 +52,4 @@ public class Handler extends Constants{
         }
         return totalMap;
     }
-
-    public int getMapWidth() {
-        return MAP_WIDTH;
-    }
-
-    public int getMapHeight() {
-        return MAP_HEIGHT;
-    }
-
 }
