@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<item name="action_icon_light">@drawable/ic_action_name</item>-->
+    <!--<item name="action_icon_dark">@drawable/ic_action_name_dark</item>-->
+
+    <attr name="action_icon_light" format="reference" />
+    <attr name="action_icon_dark" format="reference" />
+
+
+
+</resources>

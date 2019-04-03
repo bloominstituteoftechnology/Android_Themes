@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Android_Themes</string>
+    <string name="string_not_found">No setting stored</string>
+    <string name="bool_key">NightModeBool</string>
+    <string name="night_mode_setting">Night Mode setting:</string>
+    <string name="night_mode_not_supported">Night mode not supported for your version of android</string>
+</resources>
