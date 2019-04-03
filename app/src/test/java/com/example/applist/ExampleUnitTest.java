@@ -1,4 +1,4 @@
-package com.example.watchedmovielist;
+package com.example.applist;
 
 import org.junit.Test;
 
