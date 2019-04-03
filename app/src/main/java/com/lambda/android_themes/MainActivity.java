@@ -73,15 +73,10 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 receiveData(data);
                 llScroll.removeAllViews();
-                String strID=spd.getInitialID();
-                Book bkTemp=spd.bkBookByID( strID );
-                if(bkTemp==null){
-                    spd=spd.updateBook(bookCurrent);
-                }
                 int size=spd.size();
                 for(int i=0;i<size;i++){
 
-                    llScroll.addView(buildItemView( spd.bkBookByID( i )));
+                    if(!spd.bkBookByID( i ).getStrID().equals( "" ))llScroll.addView(buildItemView( spd.bkBookByID( i )));
 
                 }
 
@@ -114,29 +109,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         spd=spd.updateBook( book);
-        setSharedPreferences(book.strID,strTemp);
+        setSharedPreferences(book);
         return tv;
     }
 
-    private void setSharedPreferences(String strID,String strContent){
+    private void setSharedPreferences(Book bk){
         SharedPreferences.Editor editor = preferences.edit();
         String strRetrieved=preferences.getString(    "IDS_FOR_BOOK"     ,"" );
-        if(strRetrieved.contains(strID )){
-            if(strContent.split( "," )[1].equals( "" )){
-                strRetrieved=strRetrieved.replace( strID,"" );
+        if(strRetrieved.contains(bk.getStrID() )){
+            if(bk.getStrTitle().equals( "" )){
+                strRetrieved=strRetrieved.replace(bk.getStrID(),"" );
                 strRetrieved=strRetrieved.replace(",,", "," );
                 editor.putString("IDS_FOR_BOOK", strRetrieved);
-                editor.remove( "DATA_FOR_BOOK"+strID);
+                editor.remove( "DATA_FOR_BOOK"+bk.getStrID());
             }
         }else{
             if(strRetrieved.equals( "" )){
-                strRetrieved=strID;
+                strRetrieved=bk.getStrID();
             }else{
-                strRetrieved+=","+strID;
+                strRetrieved+=","+bk.getStrID();
             }
 
             editor.putString("IDS_FOR_BOOK", strRetrieved);
-            editor.putString("DATA_FOR_BOOK"+strID, strContent);
+            editor.putString("DATA_FOR_BOOK"+bk.getStrID(), bk.toCsvString());
 
         }
 //editor.clear();
@@ -185,9 +180,20 @@ public class MainActivity extends AppCompatActivity {
 
         if(strTemp==null)return;
         bookCurrent=new Book(strTemp);
-        if(spd==null) spd=new SharedPrefsDao(bookCurrent.toCsvString());
-        else spd= spd.updateBook(bookCurrent);
-        setSharedPreferences( bookCurrent.strID,bookCurrent.toCsvString());
+        setSharedPreferences( bookCurrent);
+        if(spd==null) {
+            spd=new SharedPrefsDao(bookCurrent.toCsvString());
+        } else{
+            spd= spd.updateBook(bookCurrent);
+        }
+int size=spd.size();
+        if(size>0)  {
+            bookCurrent=spd.bkBookByID( size-1 );
+        }else {
+            bookCurrent = null;
+        }
+
+
         return;
 
     }

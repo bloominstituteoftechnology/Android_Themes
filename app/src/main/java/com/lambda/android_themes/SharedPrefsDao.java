@@ -59,7 +59,7 @@ public class SharedPrefsDao {
             return "new";
         }
 
-        return alBook.get(0).strID;
+        return alBook.get(0).getStrID();
     }
 
     public Book bkBookByID(String strCurrentID){
@@ -79,21 +79,21 @@ public class SharedPrefsDao {
     public String strBookCSVByID(String strCurrentID){
         for(int i=0;i<this.alBook.size();i++){
             if(alBook.get(i).getStrID().equals( strCurrentID )){
-                return alBook.get( i ).toCsvString();
+                return alBook.get( i ).toCsvString() ;
             }
         }
         return "Invalid ID";
     }
 
     public SharedPrefsDao updateBook(Book bookToBeUpdated){
-        String strID=bookToBeUpdated.strID;
+        String strID=bookToBeUpdated.getStrID();
         if (strID.equals( "new" )){
             if(bookToBeUpdated.getStrTitle().equals( "" ))return this;
-            String newID="1";
-            for(int i=0;i<this.alBook.size();i++){
+            String newID=Integer.toString( size());
+            for(int i=0;i<size();i++){
                 if(alBook.get(i).getStrID().equals(newID)){
 
-                    newID=Integer.toString( i+2 );
+                    newID=Integer.toString(Integer.parseInt( newID)+1 );
                 }else{
                     break;
                 }

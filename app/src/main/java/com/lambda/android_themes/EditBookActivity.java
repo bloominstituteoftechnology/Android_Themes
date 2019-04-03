@@ -71,13 +71,13 @@ public class EditBookActivity extends AppCompatActivity {
             etInputName.setText( "" );
             etInputReason.setText( "" );
             etID.setText( "new" );
-            cbHasRead.setChecked( bookCurrent.bHasBeenRead );
+            cbHasRead.setChecked( bookCurrent.isbHasBeenRead() );
         }else {
             bookCurrent = new Book( strTemp );
             etInputName.setText( bookCurrent.getStrTitle() );
             etInputReason.setText( bookCurrent.getStrReasonToRead() );
-            etID.setText( bookCurrent.strID );
-            cbHasRead.setChecked( bookCurrent.bHasBeenRead );
+            etID.setText( bookCurrent.getStrID() );
+            cbHasRead.setChecked( bookCurrent.isbHasBeenRead() );
         }
 
     }
@@ -85,7 +85,7 @@ public class EditBookActivity extends AppCompatActivity {
     private void sendData(){
         bookCurrent.setStrTitle( etInputName.getText().toString());
         bookCurrent.setStrReasonToRead( etInputReason.getText().toString() );
-        bookCurrent.bHasBeenRead=cbHasRead.isChecked();
+        bookCurrent.setbHasBeenRead( cbHasRead.isChecked());
         bookCurrent.setStrID( etID.getText().toString() );
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra("DATA", bookCurrent.toCsvString());
@@ -112,7 +112,7 @@ public class EditBookActivity extends AppCompatActivity {
     private void sendDatatoDelete(){
         bookCurrent.setStrTitle("");
         bookCurrent.setStrReasonToRead("" );
-        bookCurrent.bHasBeenRead=cbHasRead.isChecked();
+        bookCurrent.setbHasBeenRead( cbHasRead.isChecked());
         bookCurrent.setStrID( etID.getText().toString() );
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra("DATA", bookCurrent.toCsvString());

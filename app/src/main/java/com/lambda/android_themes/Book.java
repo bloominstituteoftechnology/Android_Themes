@@ -2,10 +2,10 @@ package com.lambda.android_themes;
 
 
 public class Book {
-    String strTitle;
-    String strReasonToRead;
-    boolean bHasBeenRead;
-    String strID;
+    private String strTitle;
+    private String strReasonToRead;
+    private boolean bHasBeenRead;
+    private String strID;
 
     public Book(String strID, String strTitle,
                 String strReasonToRead,
