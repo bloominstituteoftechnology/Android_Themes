@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bc.sendEmptyData();
+
+                startActivityForResult(bc.sendEmptyData(v), 1);
             }
         });
 
@@ -44,6 +46,20 @@ public class MainActivity extends AppCompatActivity {
                 buttonNIghtControl();
             }
         });
+    }
+
+    public Intent sendEmptyData(View v){
+
+        Intent intent = new Intent(v.getContext(), EditBookActivity.class);
+
+        //      Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        //  intent.setType("image/*");
+        intent.putExtra("DATA", "");
+        return intent;
+    //    startActivityForResult(intent, 1);
+        //onActivityResult( 1, RESULT_OK ,intent);
+        //startActivityForResult(intent, 1);
+        //     startActivity(intent);
     }
 
 
@@ -86,10 +102,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
-
-
-
 }

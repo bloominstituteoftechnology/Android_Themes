@@ -61,15 +61,17 @@ public class BookController  extends AppCompatActivity {
     }
 
     private void sendData(TextView tv){
-        Intent intent = new Intent(context, EditBookActivity.class);
+
+        setContentView( R.layout.activity_main );
+        Intent intent = new Intent(tv.getContext(), EditBookActivity.class);
         String strTemp=tv.getText().toString().split( "," )[0];
         strTemp=spd.strBookCSVByID( strTemp );
         int i=spd.size();
         if(strTemp.equals( "Invalid ID" ))return;
 
         intent.putExtra("DATA", strTemp);
-        setContentView( R.layout.activity_main );
-        startActivityForResult(intent, 1);
+
+        startActivityForResult(intent, 1);// crashes
     }
 
     public void setSharedPreferences(Book bk){
@@ -97,12 +99,20 @@ public class BookController  extends AppCompatActivity {
         editor.apply();
     }
 
-    public void sendEmptyData(){
-        Intent intent = new Intent(context, EditBookActivity.class);
+    public Intent sendEmptyData(View tv){
+
+     //   setContentView( R.layout.activity_main );
+
+        Intent intent = new Intent(tv.getContext(), EditBookActivity.class);
+
+  //      Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+      //  intent.setType("image/*");
         intent.putExtra("DATA", "");
+        //startActivityForResult(intent, 2);
+        return intent;
         //onActivityResult( 1, RESULT_OK ,intent);
         //startActivityForResult(intent, 1);
-        startActivity(intent);
+   //     startActivity(intent);
     }
 
     private void writeSharedPreference(String str){

@@ -4,17 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
     <Button
         android:id="@+id/button_add"
-        android:text="ADD"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:textAppearance="@android:style/TextAppearance.Widget.PopupMenu.Large" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:id="@+id/scrolling_view"
             android:layout_width="match_parent"
@@ -25,11 +30,14 @@
         </LinearLayout>
 
     </ScrollView>
+
     <Button
         android:id="@+id/button_night_mode"
-        android:text="night mode"
+        style="@android:style/Widget.Holo.Light.Button.Toggle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="night mode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
 
 </LinearLayout>
