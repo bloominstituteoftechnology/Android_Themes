@@ -54,6 +54,10 @@ public class EditBookActivity extends AppCompatActivity {
         sendData();
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            receiveData();
+    }
 
     private void receiveData(){
         etInputName=findViewById(R.id.input_name);
