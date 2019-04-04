@@ -1,9 +1,11 @@
 package com.lambda.android_themes;
 
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +18,13 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout llScroll;
     private SharedPreferences preferences;
     private static SharedPrefsDao spd;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
         llScroll=findViewById( R.id.scrolling_view );
+        context=getApplicationContext();
 
         if(this.preferences==null){
             this.preferences = getApplicationContext().getSharedPreferences("BookRecord3", MODE_PRIVATE);
@@ -59,6 +63,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 sendEmptyData();
+            }
+        });
+        findViewById(R.id.button_night_mode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                    UiModeManager umm=context.getSystemService(UiModeManager.class);
+                    if(umm.getNightMode()==UiModeManager.MODE_NIGHT_YES ){
+                        umm.setNightMode( UiModeManager.MODE_NIGHT_NO );
+                    }else{
+                        umm.setNightMode( UiModeManager.MODE_NIGHT_YES );
+                    }
+
+
+                }
+
             }
         });
 
