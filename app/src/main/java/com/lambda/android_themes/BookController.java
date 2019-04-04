@@ -1,5 +1,6 @@
 package com.lambda.android_themes;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -62,8 +63,8 @@ public class BookController  extends AppCompatActivity {
 
     private void sendData(TextView tv){
 
-        setContentView( R.layout.activity_main );
-        Intent intent = new Intent(tv.getContext(), EditBookActivity.class);
+     //   setContentView( R.layout.activity_main );
+        Intent intent = new Intent(tv.getContext(), MainActivity.class);
         String strTemp=tv.getText().toString().split( "," )[0];
         strTemp=spd.strBookCSVByID( strTemp );
         int i=spd.size();
@@ -71,7 +72,7 @@ public class BookController  extends AppCompatActivity {
 
         intent.putExtra("DATA", strTemp);
 
-        startActivityForResult(intent, 1);// crashes
+        ((Activity)tv.getContext()).startActivityForResult(intent,1);// crashes
     }
 
     public void setSharedPreferences(Book bk){
