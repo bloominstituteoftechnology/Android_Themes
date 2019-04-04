@@ -90,10 +90,12 @@ public class SharedPrefsDao {
         if (strID.equals( "new" )){
             if(bookToBeUpdated.getStrTitle().equals( "" ))return this;
             String newID=Integer.toString( size());
+            if(newID.equals( "0" ))newID="1";
             for(int i=0;i<size();i++){
                 if(alBook.get(i).getStrID().equals(newID)){
 
                     newID=Integer.toString(Integer.parseInt( newID)+1 );
+                    i=0;
                 }else{
                     break;
                 }

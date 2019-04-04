@@ -4,11 +4,15 @@ import android.app.UiModeManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,25 +69,35 @@ public class MainActivity extends AppCompatActivity {
                 sendEmptyData();
             }
         });
+
         findViewById(R.id.button_night_mode).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    UiModeManager umm=context.getSystemService(UiModeManager.class);
-                    if(umm.getNightMode()==UiModeManager.MODE_NIGHT_YES ){
-                        umm.setNightMode( UiModeManager.MODE_NIGHT_NO );
-                    }else{
-                        umm.setNightMode( UiModeManager.MODE_NIGHT_YES );
-                    }
-
-
-                }
+buttonNIghtControl();
 
             }
         });
 
     }
 
+
+
+void buttonNIghtControl(){
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        Button bt=findViewById( R.id.button_night_mode );
+        UiModeManager umm=context.getSystemService(UiModeManager.class);
+        if(umm.getNightMode()==UiModeManager.MODE_NIGHT_YES ){
+            umm.setNightMode( UiModeManager.MODE_NIGHT_NO );
+            bt.setText( "Night mode" );
+        }else{
+            umm.setNightMode( UiModeManager.MODE_NIGHT_YES );
+            bt.setText( "Day mode" );
+
+        }
+
+
+    }
+}
 
 
     @Override
@@ -200,20 +214,21 @@ public class MainActivity extends AppCompatActivity {
 
         if(strTemp==null)return;
         bookCurrent=new Book(strTemp);
-        setSharedPreferences( bookCurrent);
+
         if(spd==null) {
             spd=new SharedPrefsDao(bookCurrent.toCsvString());
         } else{
-            spd= spd.updateBook(bookCurrent);
-        }
-int size=spd.size();
-        if(size>0)  {
-            bookCurrent=spd.bkBookByID( size-1 );
-        }else {
-            bookCurrent = null;
-        }
+            if(bookCurrent.getStrTitle().equals( "" )){//for deleting
 
+                setSharedPreferences( bookCurrent);
+                spd= spd.updateBook(bookCurrent);
+                if(spd.size()==0)bookCurrent=null
+            }else{  //for adding or modifying
+                spd= spd.updateBook(bookCurrent);
+                setSharedPreferences( bookCurrent);
+            }
 
+        }
         return;
 
     }
