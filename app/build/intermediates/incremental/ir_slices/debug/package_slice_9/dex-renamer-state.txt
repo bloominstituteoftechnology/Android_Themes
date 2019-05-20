@@ -1,0 +1,4 @@
+#Thu Apr 04 10:51:24 EDT 2019
+base.0=/home/shoon/Desktop/Lambda/2/Android_Themes/app/build/intermediates/transforms/dexMerger/debug/9
+path.0=classes.dex
+renamed.0=classes.dex
